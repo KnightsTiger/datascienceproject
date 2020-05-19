@@ -19,3 +19,10 @@ df.Close.resample('W').mean().plot()
 df.Close.resample('M').mean().plot(kind="bar")
 
 # %%
+df.Close.plot()
+
+# %%
+
+
+
+# %%
