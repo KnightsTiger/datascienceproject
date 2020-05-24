@@ -22,6 +22,7 @@ df = pd.read_csv('sample1.csv')
 
 
 # %%
+#ExponentialSmoothing
 import pandas as pd
 import matplotlib.pyplot as plt
 import statsmodels.tsa.holtwinters as ets
@@ -47,5 +48,32 @@ plt.ylabel('likes')
 plt.xlabel('hours')
 plt.show()
 
+
+# %%
+#ExponentialSmoothing
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.tsa.holtwinters as ets
+
+df = pd.read_csv('sample1.csv',index_col='Date',parse_dates=True)
+#print(df)
+#Defining the range of the training and testing
+spyt = df[:'2020-01-10']
+spyf= df['2020-01-11':]
+
+#print(spyt)
+#print(spyf)
+
+brownt = ets.ExponentialSmoothing(spyt,trend='additive',damped=False,seasonal=None).fit()
+brownf = brownt.forecast(steps=len(spyf))
+brownf = pd.DataFrame(brownf).set_index(spyf.index)
+
+fig1, ax = plt.subplots()
+ax.plot(spyt,label='spyt')
+ax.plot(spyf,label='spyf')
+ax.plot(brownf,label='brownf')
+plt.ylabel('likes')
+plt.xlabel('hours')
+plt.show()
 
 # %%
