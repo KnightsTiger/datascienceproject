@@ -12,7 +12,7 @@ This is not stationary - Because the values are higly differenced
 
 '''
 from pandas import read_csv
-series = read_csv('sample1.csv', header=0, index_col=0)
+series = read_csv('lf1.csv', header=0, index_col=0)
 X = series.values
 split = round(len(X) / 2)
 X1, X2 = X[0:split], X[split:]

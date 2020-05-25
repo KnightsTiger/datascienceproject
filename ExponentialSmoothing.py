@@ -27,11 +27,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import statsmodels.tsa.holtwinters as ets
 
-df = pd.read_csv('sample1.csv',index_col='Date',parse_dates=True)
+df = pd.read_csv('ExponentialSmoothing.csv',index_col='Date',parse_dates=True)
 #print(df)
 #Defining the range of the training and testing
-spyt = df[:'2020-01-10']
-spyf= df['2020-01-11':]
+spyt = df[:'2020-05-01']
+spyf= df['2020-05-02':]
 
 #print(spyt)
 #print(spyf)
@@ -44,8 +44,8 @@ fig1, ax = plt.subplots()
 ax.plot(spyt,label='spyt')
 ax.plot(spyf,label='spyf')
 ax.plot(brownf,label='brownf')
-plt.ylabel('likes')
-plt.xlabel('hours')
+plt.ylabel('Comments')
+plt.xlabel('Timestamp')
 plt.show()
 
 
@@ -55,7 +55,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import statsmodels.tsa.holtwinters as ets
 
-df = pd.read_csv('sample1.csv',index_col='Date',parse_dates=True)
+df = pd.read_csv('ExponentialSmoothing.csv',index_col='Date',parse_dates=True)
 #print(df)
 #Defining the range of the training and testing
 spyt = df[:'2020-01-10']
@@ -72,8 +72,8 @@ fig1, ax = plt.subplots()
 ax.plot(spyt,label='spyt')
 ax.plot(spyf,label='spyf')
 ax.plot(brownf,label='brownf')
-plt.ylabel('likes')
-plt.xlabel('hours')
+plt.ylabel('Comments')
+plt.xlabel('Timestamp')
 plt.show()
 
 # %%
